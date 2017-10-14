@@ -7,4 +7,7 @@ const db = require('../db')
 	// Ideally you would have something to handle this, so if you have time try that out!
 api.get('/hello', (req, res) => res.send({hello: 'world'}))
 
+api.use('/campuses', require('./campus'));
+api.use('/students', require('./student'));
+
 module.exports = api
