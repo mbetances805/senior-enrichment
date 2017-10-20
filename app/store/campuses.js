@@ -53,10 +53,11 @@ export function removeCampus (id) {
   }
 }
 
-export function modifyCampus (id) {
+export function modifyCampus (id, name) {
+  console.log(id, name)
   return function thunk (dispatch) {
-    return axios.put(`/api/${id}`)
-    .then(res => dispatch(updatedCampus(res.data)))
+    return axios.put(`/api/${id}`, {name})
+    .then(res => (updatedCampus(res.data)))
     .catch(err => console.error(`Updating campus: ${id} unsuccessful`, err))
   }
 }

@@ -8,6 +8,7 @@ import { fetchCampuses, postCampus } from '../store/campuses'
 import { fetchStudents } from '../store/students'
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+import Navbar from './Navbar'
 
 class Root extends Component {
 
@@ -19,6 +20,7 @@ class Root extends Component {
     return (
       <Router >
         <main>
+          <Navbar />
           <Switch>
             <Route exact path='/' component={CampusList} />
             <Route path='/students/:studentId' component={SingleStudent} />

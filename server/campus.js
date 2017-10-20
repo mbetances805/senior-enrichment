@@ -9,6 +9,7 @@ router.get('/', (request, response, next) => {
 })
 
 router.post('/', function (request, response, next) {
+  console.log(request.body)
   Campus.create(request.body)
   .then(campus => response.status(201).json(campus))
   .catch(next)
@@ -21,9 +22,8 @@ router.get('/:campusId', (request, response, next) => {
 })
 
 router.put('/:campusId', (request, response, next) => {
-  Campus.update({
-    name: request.body.name
-  }, {
+  console.log(request.body)
+  Campus.update(request.body, {
     where: {
       id: request.params.campusId
     },

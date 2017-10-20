@@ -10,7 +10,6 @@ import Footer from './components/Footer'
 
 render(
   <div>
-    <Navbar />
     <Provider store={store}>
       <Root />
     </Provider>

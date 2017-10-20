@@ -2,12 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import StudentListbyCampus from './StudentListbyCampus'
 import { removeCampus, modifyCampus } from '../store/campuses'
+import UpdateCampusEntry from './UpdateCampusEntry'
 
 function Campus (props) {
   const { campus } = props
   const { campusId } = props
-
-  console.log(modifyCampus)
 
   return (
     <div>
@@ -19,12 +18,12 @@ function Campus (props) {
          onClick={removeCampus(campusId)}>
          <span className="glyphicon glyphicon-remove" /> Delete Campus
        </button>
-       <button
-         className='btn btn-default btn-xs'
-         onClick={modifyCampus(campusId)}>
-         <span className="glyphicon glyphicon-remove" /> Modify Campus
-       </button>
-
+      <UpdateCampusEntry campus={campus} />
+      <button
+        className='btn btn-default btn-xs'
+        onClick={modifyCampus(campusId)}>
+       <span className="glyphicon glyphicon-remove" /> Modify Campus
+     </button>
     </div>
   )
 }
