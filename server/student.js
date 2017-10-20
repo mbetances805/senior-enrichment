@@ -15,11 +15,9 @@ router.get('/:studentId', (request, response, next) => {
   .catch(next)
 })
 
-router.post('/', (request, response, next) => {
+router.post('/', function (request, response, next) {
   Student.create(request.body)
-  .then(student => {
-    response.status(201).json(student)
-  })
+  .then(student => response.status(201).json(student))
   .catch(next)
 })
 
@@ -44,8 +42,9 @@ router.delete('/:studentId', (request, response, next) => {
       id: request.params.studentId
     }
   })
-  .then(() => response.sendStatus(204))
+  .then(() => Student.findAll())
+  .then(students => { response.status(204).json(students) })
   .catch(next)
 })
 
-module.exports = router;
+module.exports = router

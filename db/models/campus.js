@@ -1,5 +1,6 @@
 const Sequelize = require ('sequelize')
 const db = require('../../db')
+const Student = require('./student')
 
 module.exports = db.define('campus', {
   name: {
@@ -11,6 +12,12 @@ module.exports = db.define('campus', {
       return `api/campus/${this.id}/image`
     }
   }
+}, {
+  scopes: {
+    students: {
+      include: [
+        { model: Student }
+      ]
+    }
+  }
 })
-
-// export.modules = {Campus};

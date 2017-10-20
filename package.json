@@ -7,7 +7,7 @@
     "test": "mocha **/*.test.js *.test.js",
     "build": "webpack",
     "build-watch": "webpack -w",
-    "start": "nodemon server/start.js"
+    "start": "webpack -w & nodemon server/start.js"
   },
   "keywords": [
     "react",
@@ -37,5 +37,15 @@
     "babel-preset-stage-2": "^6.24.1",
     "volleyball": "^1.4.1",
     "webpack": "^3.5.5"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mbetances805/senior-enrichment.git"
+  },
+  "author": "Maria Betances",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mbetances805/senior-enrichment/issues"
+  },
+  "homepage": "https://github.com/mbetances805/senior-enrichment#readme"
 }
