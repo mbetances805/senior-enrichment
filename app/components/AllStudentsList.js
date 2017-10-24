@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import NewStudentEntry from './NewStudentEntry'
 import { connect } from 'react-redux'
+import UpdateStudent from './UpdateStudent'
 
 function AllStudentsList (props) {
   const { students } = props
@@ -19,8 +20,9 @@ function AllStudentsList (props) {
           )
         })
       }
-        <NewStudentEntry />
       </ul>
+      <NewStudentEntry />
+      <UpdateStudent students={students} />
     </div>
   )
 }

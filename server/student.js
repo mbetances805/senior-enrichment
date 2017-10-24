@@ -16,6 +16,7 @@ router.get('/:studentId', (request, response, next) => {
 })
 
 router.post('/', function (request, response, next) {
+  console.log(request.body)
   Student.create(request.body)
   .then(student => response.status(201).json(student))
   .catch(next)

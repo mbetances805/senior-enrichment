@@ -36,7 +36,7 @@ export function fetchStudents () {
 export function postStudent (name) {
   return function thunk (dispatch) {
     return axios.post('/api/students', name)
-    .then(res => createStudent(res.data))
+    .then(res => dispatch(createStudent(res.data)))
     .catch(error => console.error('Issue posting Student', error))
   }
 }

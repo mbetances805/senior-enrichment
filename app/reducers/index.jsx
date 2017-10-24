@@ -6,13 +6,15 @@ import students from '../store/students'
 import student from '../store/student'
 import newCampus from '../store/newCampusEntry'
 import newStudent from '../store/newStudentEntry'
+import newEmail from '../store/newStudentEmail'
 
 const rootReducer = combineReducers({
   campuses,
   students,
   student,
   newCampus,
-  newStudent
+  newStudent,
+  newEmail
 })
 
 export default rootReducer
@@ -22,3 +24,4 @@ export * from '../store/students'
 export * from '../store/student'
 export * from '../store/newCampusEntry'
 export * from '../store/newStudentEntry'
+export * from '../store/newStudentEmail'

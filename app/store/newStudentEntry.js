@@ -3,6 +3,7 @@ import axios from 'axios'
 // ACTION TYPES
 const WRITE_STUDENT = 'WRITE_STUDENT'
 
+
 // ACTION CREATORS
 export function writeStudent (name) {
   const action = { type: WRITE_STUDENT, name }

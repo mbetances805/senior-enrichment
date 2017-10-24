@@ -18,10 +18,10 @@ function Campus (props) {
          onClick={removeCampus(campusId)}>
          <span className="glyphicon glyphicon-remove" /> Delete Campus
        </button>
-      <UpdateCampusEntry campus={campus} />
+      <UpdateCampusEntry campusId={campusId} campus={campus} />
       <button
         className='btn btn-default btn-xs'
-        onClick={modifyCampus(campusId)}>
+        onClick={modifyCampus(campus)}>
        <span className="glyphicon glyphicon-remove" /> Modify Campus
      </button>
     </div>

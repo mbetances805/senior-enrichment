@@ -6,13 +6,15 @@ import { writeCampus } from '../store/newCampusEntry'
 
 
 function UpdateCampusEntry (props) {
-  const { newCampus, campus, handleChange, handleSubmit } = props
+  const { campusId, newCampus, campus, handleChange, handleSubmit } = props
+  campus.name = newCampus
 
   return (
     <div>
-      <form onSubmit={evt => handleSubmit(id, newCampus)}>
+      <form onSubmit={evt => handleSubmit(campus, evt)}>
         <label htmlFor="name">Campus Name</label>
         <input
+          value={newCampus}
           type='text'
           name='name'
           placeholder={campus.name}
@@ -26,7 +28,8 @@ function UpdateCampusEntry (props) {
 
 const mapState = (state) => {
   return {
-    newCampus: state.newCampus,
+    newCampus: state.newCampus
+
   }
 }
 
@@ -35,9 +38,10 @@ const mapDispatch = function (dispatch) {
     handleChange (event) {
       dispatch(writeCampus(event.target.value))
     },
-    handleSubmit (id, name, evt) {
+    handleSubmit (input, evt) {
+      console.log('evt', evt)
       evt.preventDefault()
-      dispatch(modifyCampus(id, name))
+      dispatch(modifyCampus(input))
       dispatch(writeCampus(''))
     }
   }

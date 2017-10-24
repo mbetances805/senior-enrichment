@@ -22,8 +22,8 @@ export function deletedCampus (id) {
   return action
 }
 
-export function updatedCampus (id) {
-  const action = { type: UPDATED_CAMPUS, id }
+export function updatedCampus (campus) {
+  const action = { type: UPDATED_CAMPUS, campus }
   return action
 }
 
@@ -53,12 +53,12 @@ export function removeCampus (id) {
   }
 }
 
-export function modifyCampus (id, name) {
-  console.log(id, name)
+export function modifyCampus (campus) {
+  // const {campus} = input
   return function thunk (dispatch) {
-    return axios.put(`/api/${id}`, {name})
+    return axios.put(`/api/${campus.id}`, campus)
     .then(res => (updatedCampus(res.data)))
-    .catch(err => console.error(`Updating campus: ${id} unsuccessful`, err))
+    .catch(err => console.error(`Updating campus: ${campus.id} unsuccessful`, err))
   }
 }
 
@@ -75,7 +75,7 @@ export default function reducer (state = [], action) {
       return action.id
 
     case UPDATED_CAMPUS:
-      return action.id
+      return action.campus
 
     default:
       return state
